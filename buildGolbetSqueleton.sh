@@ -36,4 +36,4 @@ dotnet new gitignore --force #Si gitignore existe entonces es borrado
 #Commit de esqueleto.
 git add .
 git commit -m "Add N-layer solution skeleton (Modulo 1)" #mensaje del commit, visto ya antes
-git push #Este comando sube commit al servidor
+git push #Este comando sube commit al servidor, debe ser hecho manualmente para poner el token creado con herramientas de desarollador como contraseña
