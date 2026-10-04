@@ -31,9 +31,9 @@ dotnet add GolBet.Services reference GolBet.Repositories GolBet.Entities
 dotnet add GolBet.Repositories reference GolBet.Entities
 
 #Creando a git ignore
-dotnet new gitignore
+dotnet new gitignore --force #Si gitignore existe entonces es borrado
 
 #Commit de esqueleto.
 git add .
-git commit -m "Add N-layer solution skeleton (Module 1)"
+git commit -m "Add N-layer solution skeleton (Modulo 1)" #mensaje del commit, visto ya antes
 git push #Este comando sube commit al servidor
