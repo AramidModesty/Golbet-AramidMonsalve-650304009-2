@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net8.0": {}
+    "net8.0": {
+      "GolBet.Entities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/GolBet.Entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GolBet.Entities.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "GolBet.Entities/1.0.0": {
+      "type": "project",
+      "path": "../GolBet.Entities/GolBet.Entities.csproj",
+      "msbuildProject": "../GolBet.Entities/GolBet.Entities.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net8.0": []
+    "net8.0": [
+      "GolBet.Entities >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "/home/aramid/.nuget/packages/": {}
@@ -32,7 +51,11 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/home/aramid/Proyectos/ITM/diseñoDeSoftware/Golbet-AramidModesty/GolBet.Entities/GolBet.Entities.csproj": {
+              "projectPath": "/home/aramid/Proyectos/ITM/diseñoDeSoftware/Golbet-AramidModesty/GolBet.Entities/GolBet.Entities.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
