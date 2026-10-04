@@ -1,6 +1,10 @@
 #Presentado por Aramid Monsalve
-# el constructor del esqueleto
-# GolBet para Linux
+# el constructor del esqueleto GolBet para Linux
+# Aramid es un hibrido spanish/ingles, y asi esta la documentacion.
+
+#Sabias que vscode tiene una opcion parra correr shell files?
+# solo ve a los tres puntos al lado de Run, a terminal,
+# y presiona Run Active File
 
 # Herramienta EF Core CLI
 # Requerida para el manejo de migraciones

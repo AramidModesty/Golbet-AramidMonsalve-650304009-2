@@ -1,0 +1,70 @@
+GolBet.web/appsettings.json, and change the connection string to your local database
+settings.
+The connection is only the ConnectionStrings,
+the rest is optional so it knows what to show from time to time.
+
+The nameConnection is the name of the connection string, you can change it to whatever you want,
+but you must use the same name in the code.
+
+To know if it is configured right in this proyect,
+use the following command in the terminal, in the root of the proyect:
+
+dotnet ef migrations add InitialDomain -p GolBet.Repositories -s GolBet.Web
+dotnet ef database update -p GolBet.Repositories -s GolBet.Web
+
+or run the shell script migration in the root proyect, and if it is wrong,
+you'll trigger the error and will be able to try again.
+
+Logging is the response from the server to the client.
+
+For example for this one proyect, it is: DefaultConnection
+and uses docker with sqlserver and for optional attributes configuration
+it uses:
+ logging, allowedHosts
+
+Here are some examples of the appsettings.json file for two different database providers:
+
+for Sqlserver:
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=localhost,1433;Database=MyDatabase;Trusted_Connection=True;TrustServerCertificate=True"
+  },
+  "DatabaseProvider": "SQLServer"
+}
+
+for Postgresql:
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Host=localhost;Port=5432;Database=MyDatabase;Username=myuser;Password=mypassword"
+  },
+  "Logging": { "LogLevel": { "Default": "Information", "Microsoft.AspNetCore": "Warning" } },
+  "AllowedHosts": "*"
+}
+
+
+In case it is a docker, you must add to appsettings.json
+your User Id and your password of the database.
+Adding these arguments to the connection string
+and removing the Username and Password from postgresql.
+
+> User Id=userName;Password=YourStrong!Passw0rd;
+
+ sa is the default userName for sql server
+ postgres is the default userName for postgresql
+ Your strong password is the password you set when creating the database in docker.
+
+for Docker, you can use the following connection string for PostgreSQL:
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Host=postgres;Port=5432;Database=MyDatabase; User Id=postgres;Password=YourStrong!Passw0rd;Trust Server Certificate=True"
+  },
+  "DatabaseProvider": "PostgreSQL"
+}
+
+you can use the following connection string for SQL Server:
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=sqlserver;Database=MyDatabase;User Id=sa;Password=YourStrong!Passw0rd;TrustServerCertificate=True"
+  },
+  "DatabaseProvider": "SQLServer"
+}
