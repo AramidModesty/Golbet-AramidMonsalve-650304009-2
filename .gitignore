@@ -480,4 +480,6 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+# Can ignore with git update-index --skip-worktree GolBet.Web/appsettings.json
+# in the local place after being made
 GolBet.Web/appsettings.json
