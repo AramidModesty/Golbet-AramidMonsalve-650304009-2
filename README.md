@@ -9,9 +9,7 @@ Su desarrollo hasta la unidad 5 del curso se desarrolla del 3 al 5 de octubre.
 Disfruten del Api
 
 Por:
-    
     Aramid Monsalve
     
 Con base de las guias de:
-    
     Carlos J Díaz S
