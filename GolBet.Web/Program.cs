@@ -2,7 +2,9 @@ using GolBet.Repositories.Data;
 using Microsoft.EntityFrameworkCore;
 using GolBet.Repositories.Implementations; // imports always at the top of file. This for C#
 using GolBet.Repositories.Interfaces;
-
+using GolBet.Services.Implementations;
+using GolBet.Services.Interfaces;
+using GolBet.Services.Mapping;
 var builder = WebApplication.CreateBuilder(args);
  
 builder.Services.AddControllersWithViews();
@@ -21,6 +23,15 @@ builder.Services.AddScoped<IMatchRepository, MatchRepository>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Specific repositories
+builder.Services.AddScoped<IMatchRepository, MatchRepository>();
+
+// AutoMapper: scans the assembly containing MappingProfile for all profiles
+builder.Services.AddAutoMapper(typeof(MappingProfile));
+ 
+// Business services
+builder.Services.AddScoped<IMatchService, MatchService>();
 
 var app = builder.Build();
  
