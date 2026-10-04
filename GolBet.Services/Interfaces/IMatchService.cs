@@ -9,5 +9,9 @@ public interface IMatchService
     Task<IEnumerable<MatchDto>> GetBoardAsync(MatchStatus? status = null);
     /// <summary>Match detail page: all match data + total bets.</summary>
     Task<MatchDetailDto?> GetDetailAsync(int id);
+    Task<MatchFormDto?> GetForEditAsync(int id);
+    Task CreateAsync(MatchFormDto dto);
+    Task UpdateAsync(MatchFormDto dto);
+    Task DeactivateAsync(int id);
 }
 

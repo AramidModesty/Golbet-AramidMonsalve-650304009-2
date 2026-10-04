@@ -5,8 +5,14 @@ using GolBet.Repositories.Interfaces;
 using GolBet.Services.Implementations;
 using GolBet.Services.Interfaces;
 using GolBet.Services.Mapping;
-var builder = WebApplication.CreateBuilder(args);
+using System.Globalization;
  
+var culture = new CultureInfo("es-CO");
+CultureInfo.DefaultThreadCurrentCulture = culture;
+CultureInfo.DefaultThreadCurrentUICulture = culture;
+ 
+var builder = WebApplication.CreateBuilder(args);
+
 builder.Services.AddControllersWithViews();
 
 //Este es el nuevo código 

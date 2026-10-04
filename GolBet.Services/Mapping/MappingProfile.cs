@@ -15,10 +15,15 @@ public class MappingProfile : Profile
         // MatchDto.HomeTeamName  <- Match.HomeTeam.Name
         // MatchDto.AwayTeamCrestUrl <- Match.AwayTeam.CrestUrl
         CreateMap<Match, MatchDto>();
-        
+
         // MatchDetailDto inherits from MatchDto, so we only need to add the extra property
         CreateMap<Match, MatchDetailDto>()
             .ForMember(dto => dto.TotalBets,
                options => options.MapFrom(match => match.Bets.Count));
+       
+        CreateMap<Team, TeamDto>();
+        // ReverseMap() allows mapping in both directions
+        CreateMap<TeamFormDto, Team>().ReverseMap();
+        CreateMap<MatchFormDto, Match>().ReverseMap();
     }
 }
