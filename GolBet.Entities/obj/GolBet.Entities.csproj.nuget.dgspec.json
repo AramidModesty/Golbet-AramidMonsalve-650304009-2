@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/aramid/Proyectos/ITM/diseñoDeSoftware/Golbet-AramidModesty/GolBet.Entities/GolBet.Entities.csproj": {}
+    "/home/aramid/Proyectos/ITM/diseñoDeSoftware/Golbet-AramidMonsalve-650304009-2/GolBet.Entities/GolBet.Entities.csproj": {}
   },
   "projects": {
-    "/home/aramid/Proyectos/ITM/diseñoDeSoftware/Golbet-AramidModesty/GolBet.Entities/GolBet.Entities.csproj": {
+    "/home/aramid/Proyectos/ITM/diseñoDeSoftware/Golbet-AramidMonsalve-650304009-2/GolBet.Entities/GolBet.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/aramid/Proyectos/ITM/diseñoDeSoftware/Golbet-AramidModesty/GolBet.Entities/GolBet.Entities.csproj",
+        "projectUniqueName": "/home/aramid/Proyectos/ITM/diseñoDeSoftware/Golbet-AramidMonsalve-650304009-2/GolBet.Entities/GolBet.Entities.csproj",
         "projectName": "GolBet.Entities",
-        "projectPath": "/home/aramid/Proyectos/ITM/diseñoDeSoftware/Golbet-AramidModesty/GolBet.Entities/GolBet.Entities.csproj",
+        "projectPath": "/home/aramid/Proyectos/ITM/diseñoDeSoftware/Golbet-AramidMonsalve-650304009-2/GolBet.Entities/GolBet.Entities.csproj",
         "packagesPath": "/home/aramid/.nuget/packages/",
-        "outputPath": "/home/aramid/Proyectos/ITM/diseñoDeSoftware/Golbet-AramidModesty/GolBet.Entities/obj/",
+        "outputPath": "/home/aramid/Proyectos/ITM/diseñoDeSoftware/Golbet-AramidMonsalve-650304009-2/GolBet.Entities/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/aramid/.nuget/NuGet/NuGet.Config"

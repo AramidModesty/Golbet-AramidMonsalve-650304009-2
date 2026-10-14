@@ -56,15 +56,15 @@ and removing the Username and Password from postgresql.
 for Docker, you can use the following connection string for PostgreSQL:
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Host=postgres;Port=5432;Database=MyDatabase; User Id=postgres;Password=YourStrong!Passw0rd;Trust Server Certificate=True"
+    "DefaultConnection": "Host=localhost;Port=5432;Database=MyDatabase; User Id=postgres;Password=YourStrong!Passw0rd;Trust Server Certificate=True"
   },
   "DatabaseProvider": "PostgreSQL"
 }
 
 you can use the following connection string for SQL Server:
-{
+{Server=localhost;Database=golBetDb;User Id=sa;Password=Kiras4yswhat.987;TrustServerCertificate=true;
   "ConnectionStrings": {
-    "DefaultConnection": "Server=sqlserver;Database=MyDatabase;User Id=sa;Password=YourStrong!Passw0rd;TrustServerCertificate=True"
+    "DefaultConnection": "Server=localhost;Database=MyDatabase;User Id=sa;Password=YourStrong!Passw0rd;TrustServerCertificate=True"
   },
   "DatabaseProvider": "SQLServer"
 }
