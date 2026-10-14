@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4N6HMDyPTFk=",
+  "dgSpecHash": "Qy0SYwhXaBw=",
   "success": true,
-  "projectFilePath": "/home/aramid/Proyectos/ITM/diseñoDeSoftware/Golbet-AramidModesty/GolBet.Repositories/GolBet.Repositories.csproj",
+  "projectFilePath": "/home/aramid/Proyectos/ITM/diseñoDeSoftware/Golbet-AramidMonsalve-650304009-2/GolBet.Repositories/GolBet.Repositories.csproj",
   "expectedPackageFiles": [
     "/home/aramid/.nuget/packages/azure.core/1.38.0/azure.core.1.38.0.nupkg.sha512",
     "/home/aramid/.nuget/packages/azure.identity/1.11.4/azure.identity.1.11.4.nupkg.sha512",
