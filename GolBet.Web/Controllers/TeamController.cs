@@ -1,9 +1,14 @@
+//GolBet.Web/Controllers/TeamsController.cs
 using GolBet.Services.DTOs;
 using GolBet.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
- 
+
+// proteger el controller COMPLETO
+using Microsoft.AspNetCore.Authorization;
+using GolBet.Repositories.Data;
 namespace GolBet.Web.Controllers;
- 
+
+[Authorize(Roles = "Admin")]   // only Admins can manage teams
 public class TeamsController : Controller
 {
     private readonly ITeamService _teamService;

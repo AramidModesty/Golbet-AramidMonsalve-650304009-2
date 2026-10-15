@@ -6,7 +6,9 @@ using GolBet.Services.Implementations;
 using GolBet.Services.Interfaces;
 using GolBet.Services.Mapping;
 using System.Globalization;
- 
+using Microsoft.AspNetCore.Identity;
+using GolBet.Entities;
+
 var culture = new CultureInfo("es-CO");
 CultureInfo.DefaultThreadCurrentCulture = culture;
 CultureInfo.DefaultThreadCurrentUICulture = culture;
@@ -15,12 +17,28 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 
-//Este es el nuevo código 
+//add DbContext with SQL Server connection string
 builder.Services.AddDbContext<AppDbContext>(options =>
 
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+ builder.Services.AddIdentity<GolBet.Entities.AppUser, IdentityRole>(options =>
+{
+    // Academic-friendly password policy (production would be stricter)
+    options.Password.RequiredLength = 6;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequireDigit = true;
+    options.User.RequireUniqueEmail = true;
+})
+.AddEntityFrameworkStores<AppDbContext>();
  
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "/Account/Login";           // anonymous hitting [Authorize]
+    options.AccessDeniedPath = "/Account/AccessDenied";  // wrong role
+});
+
 // Open generic registration: one line, a repository for every entity
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
  
@@ -45,13 +63,15 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    await DbSeeder.SeedAsync(context);
+    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<AppUser>>();
+
+    await DbSeeder.SeedAsync(context, roleManager, userManager);
 }
 
 // Configure the HTTP request pipeline.
-// pipeline is the sequence of middleware
-// that handles an incoming HTTP request
-// and generates a response
+// pipeline is the sequence of middleware that handles an incoming HTTP request and generates a response
+
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
@@ -64,7 +84,10 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthorization();
+app.UseAuthentication();   // who are you?  (reads the cookie, builds User)
+app.UseAuthorization();    // may you do this?  (evaluates [Authorize])
+
+//There was a third one here, I erased it as it didn't seem to do anything. //app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",

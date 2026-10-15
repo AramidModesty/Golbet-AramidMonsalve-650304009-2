@@ -3,7 +3,10 @@ using GolBet.Services.DTOs;
 using GolBet.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;   // SelectList
+using Microsoft.AspNetCore.Authorization;
+using GolBet.Repositories.Data;
 namespace GolBet.Web.Controllers;
+
 
 public class MatchesController(IMatchService matchService) : Controller
 {
@@ -28,6 +31,7 @@ public class MatchesController(IMatchService matchService) : Controller
     }
     private readonly ITeamService? _teamService;
     // GET /Matches/Create
+    [Authorize(Roles = "Admin")]   // only Admins can create matches
     public async Task<IActionResult> Create()
     {
         await LoadTeamsAsync();
@@ -35,6 +39,8 @@ public class MatchesController(IMatchService matchService) : Controller
     }
     
     [HttpPost, ValidateAntiForgeryToken]
+    
+    [Authorize(Roles = "Admin")]   // only Admins can create matches
     public async Task<IActionResult> Create(MatchFormDto dto)
     {
         if (!ModelState.IsValid)
