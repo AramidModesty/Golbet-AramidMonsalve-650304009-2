@@ -1,5 +1,6 @@
 #The nugget revennge, it works because we have the
 #first document this time.
+
 #Sql for cs entities as framework
 dotnet add GolBet.Repositories package Microsoft.EntityFrameworkCore.SqlServer --version 8.0.11
 

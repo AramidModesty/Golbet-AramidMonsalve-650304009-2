@@ -1,10 +1,14 @@
 @* Views/Teams/Index.cshtml *@
+@* This is the part where teams are shown*@
 @model IEnumerable<GolBet.Services.DTOs.TeamDto>
 @{ ViewData["Title"] = "Equipos"; }
  
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h2>Equipos</h2>
-    <a asp-action="Create" class="btn btn-success">+ Nuevo equipo</a>
+    @if (User.IsInRole("Admin"))
+    {
+        <a asp-action="Create" class="btn btn-success">+ Nuevo equipo</a>
+    }
 </div>
  
 <table class="table table-hover align-middle">
@@ -23,17 +27,20 @@
             </td>
             <td class="fw-bold">@team.Name</td>
             <td>@team.City</td>
-            <td class="text-end">
-                <a asp-action="Edit" asp-route-id="@team.Id"
-                   class="btn btn-sm btn-outline-primary">Editar</a>
-                <form asp-action="Deactivate" asp-route-id="@team.Id" method="post"
-                      class="d-inline"
-                      onsubmit="return confirm('¿Desactivar el equipo @team.Name?');">
-                    <button type="submit" class="btn btn-sm btn-outline-danger">
-                        Desactivar
-                    </button>
-                </form>
-            </td>
+            @if (User.IsInRole("Admin"))
+            {
+                <td class="text-end">
+                    <a asp-action="Edit" asp-route-id="@team.Id"
+                    class="btn btn-sm btn-outline-primary">Editar</a>
+                    <form asp-action="Deactivate" asp-route-id="@team.Id" method="post"
+                        class="d-inline"
+                        onsubmit="return confirm('¿Desactivar el equipo @team.Name?');">
+                        <button type="submit" class="btn btn-sm btn-outline-danger">
+                            Desactivar
+                        </button>
+                    </form>
+                </td>
+            }
         </tr>
     }
     </tbody>
