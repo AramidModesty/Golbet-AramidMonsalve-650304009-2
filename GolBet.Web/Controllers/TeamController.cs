@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using GolBet.Repositories.Data;
 namespace GolBet.Web.Controllers;
 
-[Authorize(Roles = "Admin")]   // only Admins can manage teams
+[Authorize(Roles = DbSeeder.AdminRole)]   // only Admins can manage teams
 public class TeamsController : Controller
 {
     private readonly ITeamService _teamService;

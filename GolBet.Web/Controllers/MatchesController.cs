@@ -31,7 +31,7 @@ public class MatchesController(IMatchService matchService) : Controller
     }
     private readonly ITeamService? _teamService;
     // GET /Matches/Create
-    [Authorize(Roles = "Admin")]   // only Admins can create matches
+    [Authorize(Roles = DbSeeder.AdminRole)]   // only Admins can create matches
     public async Task<IActionResult> Create()
     {
         await LoadTeamsAsync();
@@ -40,7 +40,7 @@ public class MatchesController(IMatchService matchService) : Controller
     
     [HttpPost, ValidateAntiForgeryToken]
     
-    [Authorize(Roles = "Admin")]   // only Admins can create matches
+    [Authorize(Roles = DbSeeder.AdminRole)]   // only Admins can create matches
     public async Task<IActionResult> Create(MatchFormDto dto)
     {
         if (!ModelState.IsValid)
