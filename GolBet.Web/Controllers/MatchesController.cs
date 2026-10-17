@@ -14,21 +14,13 @@ public class MatchesController(IMatchService matchService) : Controller
 
     // GET /Matches            -> all matches
     // GET /Matches?status=Scheduled -> filtered board
-    public async Task<IActionResult> Index(MatchStatus? status)
+    public async Task<IActionResult> Index(MatchStatus? status, string? searchTeam)
     {
         ViewBag.CurrentStatus = status;
-        var board = await _matchService.GetBoardAsync(status);
+        ViewBag.SearchTeam = searchTeam;
+        var board = await _matchService.GetBoardAsync(status, searchTeam);
         return View(board);
     }
-    // After being a dummy, I realized each match already contains the teams
-    public async Task<IActionResult> IndexByTeams(string? homeTeam,string? awayTeam)
-    {
-        ViewBag.match.HomeTeam=homeTeam;
-        ViewBag.match.HomeTeam=awayTeam;
-        var board = await _matchService.GetForTeamsAsync(homeTeam,awayTeam);
-        return View(board);
-    }
-    
     // GET /Matches/Detail/3
     public async Task<IActionResult> Detail(int id)
     {
@@ -38,7 +30,23 @@ public class MatchesController(IMatchService matchService) : Controller
         return View(match);
     }
     private readonly ITeamService? _teamService;
-    // GET /Matches/Create
+    /* After being a dummy, I realized each match already contains the teams
+        it means I made a lot of unnecessary things to teams.
+        Then I also saw the message of just putting the string on the index function.
+        The deltatime guys are yelling at me, what do I do?
+       I've got an idea, I'll just make another page
+       Post methods should be called through post declared functions
+        calling them without declaring will disallow it and cause error,
+        better is not putting the method as post unless it saves something in the database.
+    */
+    public async Task<IActionResult> IndexByTeams(string? homeTeam,string? awayTeam)
+    {
+        ViewBag.homeTeam=homeTeam;
+        ViewBag.awayTeam=awayTeam;
+        var board = await _matchService.GetForTeamsAsync(homeTeam,awayTeam);
+        return View(board);
+    }
+    // GET /Matches/Create    
     [Authorize(Roles = DbSeeder.AdminRole)]   // only Admins can create matches
     public async Task<IActionResult> Create()
     {

@@ -1,5 +1,6 @@
 # Golbet-AramidMonsalve-650304009-2
-para el curso 650304009-2 del ITM
+
+Para el curso de diseño de software del ITM.
 
 Want to see me create a repository with a sports api? Want to see me do it again?
 
@@ -13,3 +14,5 @@ Aramid Monsalve
     
 #### Con base de las guias de:
 Carlos J Díaz S
+
+Código de curso: 650304009-2 (ITM)
