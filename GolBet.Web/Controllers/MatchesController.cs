@@ -20,7 +20,15 @@ public class MatchesController(IMatchService matchService) : Controller
         var board = await _matchService.GetBoardAsync(status);
         return View(board);
     }
- 
+    // After being a dummy, I realized each match already contains the teams
+    public async Task<IActionResult> IndexByTeams(string? homeTeam,string? awayTeam)
+    {
+        ViewBag.match.HomeTeam=homeTeam;
+        ViewBag.match.HomeTeam=awayTeam;
+        var board = await _matchService.GetForTeamsAsync(homeTeam,awayTeam);
+        return View(board);
+    }
+    
     // GET /Matches/Detail/3
     public async Task<IActionResult> Detail(int id)
     {
@@ -66,7 +74,7 @@ public class MatchesController(IMatchService matchService) : Controller
     // GET /Matches/Edit/5  y  POST /Matches/Edit  siguen el mismo molde
     // (con GetForEditAsync y UpdateAsync);
     // POST /Matches/Deactivate/5 es idéntico al de Teams.
-    
+
     private async Task LoadTeamsAsync()
     {
         var teams = await _teamService.GetAllAsync();
