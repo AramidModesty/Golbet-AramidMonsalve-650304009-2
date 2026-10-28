@@ -66,7 +66,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/10.0.112/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/10.0.113/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
@@ -146,7 +146,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/10.0.112/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/10.0.113/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
@@ -219,7 +219,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/10.0.112/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/10.0.113/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
@@ -289,7 +289,7 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.NETCore.App.Host.linux-x64",
-              "version": "[8.0.31, 8.0.31]"
+              "version": "[8.0.32, 8.0.32]"
             }
           ],
           "frameworkReferences": {
@@ -300,7 +300,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/10.0.112/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/10.0.113/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

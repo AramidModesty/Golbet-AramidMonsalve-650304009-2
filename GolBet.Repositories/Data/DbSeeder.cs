@@ -1,4 +1,7 @@
 // GolBet.Repositories/Data/DbSeeder.cs
+// Every new seed type must go to the migration commands
+// SeedAsync must call every seed type that you make.
+// Roles go as constants atributes of the DbSeeder
 using GolBet.Entities;
 using GolBet.Entities.Enums;
 using Microsoft.AspNetCore.Identity;

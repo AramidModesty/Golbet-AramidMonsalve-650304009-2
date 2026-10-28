@@ -1,0 +1,25 @@
+## To reseed your database, you have to first drop the existing database
+##  and then migrate the database again.
+## Example of the drop of database:
+# // where context is already defined as AppDbContext context
+# context.Database.EnsureDeleted();
+# context.Database.EnsureCreated();
+# DbSeeder.Seed(context);
+
+## If you want to clean a certain table of entities like Matches,
+##  you only drop that and then migrate your database
+## Example of the drop of entity:
+# // where context is already defined as AppDbContext context
+# context.Matches.RemoveRange(context.Matches);
+# context.SaveChanges();
+# DbSeeder.Seed(context);
+
+# If you don't have trouble with making it from the db like me,
+#  the code depends of the database.
+# For sql server for example, to drop the database it would be:
+use master
+go
+drop database if exists golBetDb
+go
+
+# Once you've dropped the database, run the following for your seeder
